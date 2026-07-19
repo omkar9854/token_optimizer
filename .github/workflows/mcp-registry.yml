@@ -1,0 +1,33 @@
+name: Publish to MCP Registry
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  mcp-registry:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # GitHub OIDC authenticates the io.github.omkar9854/* namespace
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait until the version in server.json is live on PyPI
+        run: |
+          VERSION=$(python3 -c "import json; print(json.load(open('server.json'))['version'])")
+          echo "waiting for slimctx==$VERSION on PyPI"
+          for i in $(seq 1 30); do
+            if curl -sf "https://pypi.org/pypi/slimctx/$VERSION/json" > /dev/null; then
+              echo "live"; exit 0
+            fi
+            sleep 10
+          done
+          echo "slimctx==$VERSION never appeared on PyPI"; exit 1
+      - name: Install mcp-publisher
+        run: |
+          curl -sfL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_linux_amd64.tar.gz" | tar xz mcp-publisher
+      - name: Publish to MCP Registry
+        run: |
+          ./mcp-publisher login github-oidc
+          ./mcp-publisher publish
