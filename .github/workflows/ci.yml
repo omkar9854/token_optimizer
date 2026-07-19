@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install test dependency
+        run: pip install pytest
+      - name: Run tests
+        run: python -m pytest tests/ -q
+      - name: Run benchmark (facts must survive compression)
+        run: python benchmarks/bench.py
+      - name: Verify zero network/exec primitives in library code
+        run: |
+          ! grep -rEn "urllib|socket\b|requests|subprocess|eval\(|exec\(|pickle|os\.system" slimctx/ --include="*.py" | grep -v "^slimctx/mcp_server.py:13:"

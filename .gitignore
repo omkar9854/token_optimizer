@@ -1,0 +1,15 @@
+# slimctx stores hold ORIGINALS of everything compressed — never commit them
+.slimctx/
+*.db
+*.db-wal
+*.db-shm
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+.DS_Store
