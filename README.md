@@ -3,6 +3,8 @@
 <!-- mcp-name: io.github.omkar9854/token_optimizer -->
 
 [![CI](https://github.com/omkar9854/token_optimizer/actions/workflows/ci.yml/badge.svg)](https://github.com/omkar9854/token_optimizer/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/slimctx.svg)](https://pypi.org/project/slimctx/)
+[![MCP Registry](https://img.shields.io/badge/MCP%20Registry-io.github.omkar9854%2Ftoken__optimizer-blue)](https://registry.modelcontextprotocol.io/?search=token_optimizer)
 [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](pyproject.toml)
 [![Dependencies: zero](https://img.shields.io/badge/dependencies-zero-brightgreen.svg)](pyproject.toml)
@@ -99,8 +101,8 @@ environment, use slimctx.
 ## Install / test
 
 ```bash
-pip install -e .              # or just vendor the slimctx/ directory
-python -m pytest tests/ -q    # 18 tests: invariants, not examples
+pip install slimctx           # from PyPI — or vendor the slimctx/ directory
+python -m pytest tests/ -q    # 26 tests: invariants, not examples
 python3 benchmarks/bench.py   # reproduce the numbers above
 ```
 
