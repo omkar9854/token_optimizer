@@ -1,5 +1,7 @@
 # slimctx — the token optimizer for AI agents
 
+<!-- mcp-name: io.github.omkar9854/token_optimizer -->
+
 [![CI](https://github.com/omkar9854/token_optimizer/actions/workflows/ci.yml/badge.svg)](https://github.com/omkar9854/token_optimizer/actions/workflows/ci.yml)
 [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](pyproject.toml)

@@ -20,5 +20,8 @@ classifiers = [
 [project.optional-dependencies]
 dev = ["pytest>=7"]
 
+[project.scripts]
+slimctx-mcp = "slimctx.mcp_server:main"
+
 [tool.setuptools]
 packages = ["slimctx"]
