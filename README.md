@@ -10,7 +10,12 @@
 slimctx compresses what your agent reads — tool outputs, logs, JSON, source
 files, prose — before it reaches the LLM. Same answers, fraction of the
 tokens. Pure Python stdlib: no ML models, no downloads, no network calls,
-ever. Auditable end to end in ~1,200 lines.
+ever. Auditable end to end in ~1,600 lines.
+
+<p align="center">
+  <img src="demo.gif" alt="slimctx demo: 61,700 tokens compressed to 298 in 29ms, FATAL lines preserved, byte-exact retrieval" width="820">
+  <br><sub>Live output of <code>python3 benchmarks/demo.py</code> — run it yourself, nothing is staged.</sub>
+</p>
 
 ```python
 from slimctx import Pipeline, Config
