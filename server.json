@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
   "name": "io.github.omkar9854/token_optimizer",
-  "description": "Zero-dependency, fully-reversible context compression — cut agent token usage up to 94% (log template mining, JSON tabularization, query-aware code skeletons), originals always retrievable",
+  "description": "Reversible context compression for AI agents: cut token usage up to 94%, originals retrievable",
   "repository": {
     "url": "https://github.com/omkar9854/token_optimizer",
     "source": "github"
